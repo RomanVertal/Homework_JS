@@ -1,29 +1,16 @@
+const rainbow = document.querySelector('.rainbow')
 
 
-let sum = ((num1) => {
+for(let i = rainbow.children.length -1; i>=0 ; i--){
 
-    let allSum = num1;
-  
-    function f(num2) {
-      allSum += num2;
-      return f;
+    rainbow.children[i].style.background = rainbow.children[i].classList[0]
+    
+    if(rainbow.children[i].previousElementSibling){
+
+        rainbow.children[i].previousElementSibling.append(rainbow.children[i])
+
+        
     }
-  
-    f.toString = function() {
-      return allSum;
-    };
-  
-    return f;
-  })
+     
 
-
-
-//   console.log(sum(4)(14))
-//   console.log(sum(4)(14)(7))
-//   console.log(sum(4)(14)(7)(5))
-
-  alert(sum(4)(14))
-  alert(sum(4)(14)(7))
-  alert(sum(4)(14)(7)(5))
-
-  
+}
