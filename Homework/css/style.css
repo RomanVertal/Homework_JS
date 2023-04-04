@@ -1,0 +1,28 @@
+
+.form_style{ 
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: aqua;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+
+
+}
+
+.form_style label{
+    
+    margin:10px 5px;
+    
+
+
+}
+
+.form_style button{
+    
+    margin-top: 10px;
+    
+
+
+}
