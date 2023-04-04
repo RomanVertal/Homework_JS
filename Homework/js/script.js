@@ -22,6 +22,7 @@ let sum = ((num1) => {
 //   console.log(sum(4)(14)(7))
 //   console.log(sum(4)(14)(7)(5))
 
+
   alert(sum(4)(14))
   alert(sum(4)(14)(7))
   alert(sum(4)(14)(7)(5))
