@@ -42,11 +42,9 @@ makeRequest('GET', 'https://jsonplaceholder.typicode.com/todos')
         return data.json()
     }
 })
-.then((data) => {    
-    
-    document.dispatchEvent(new CustomEvent ('dataSuccessful', {
-        detail:data
-    }))   
+.then((data) => {        
+
+    createTodosList(data)
 
 })
 .catch((e) => {
@@ -54,11 +52,6 @@ makeRequest('GET', 'https://jsonplaceholder.typicode.com/todos')
 })
 
 
-document.addEventListener('dataSuccessful' , (props) => {    
-
-    createTodosList(props.detail)
-
-})
 
 
 
@@ -80,6 +73,25 @@ const sortTask = ((data) => {
     })  
 
     return {completedTasks , inProgressTasks}
+
+})
+
+const pushTaskInTodos = ((tasks, block, checked) => {
+
+    tasks.forEach((item) => {
+       
+        const element = template.content.cloneNode(true)    
+        element.querySelector('.user_id').textContent = `User Id : ${item.userId}`    
+        element.querySelector('.task_text').textContent = item.title
+        element.querySelector('.task_text').htmlFor = `checkbox_${item.id}` 
+        element.querySelector('.checkbox').checked = checked
+        element.querySelector('.checkbox').id = `checkbox_${item.id}`       
+        element.querySelector('.task').id = item.id
+
+        block.append(element)
+
+    });
+
 
 })
 
@@ -120,32 +132,9 @@ const createTodosList = ((data) => {
 
     const {completedTasks , inProgressTasks} = sortTask(data);
 
-    completedTasks.forEach((item) => {
-       
-        const element = template.content.cloneNode(true)    
-        element.querySelector('.user_id').textContent = `User Id : ${item.userId}`    
-        element.querySelector('.task_text').textContent = item.title
-        element.querySelector('.task_text').htmlFor = `checkbox_${item.id}` 
-        element.querySelector('.checkbox').checked = 'checked' 
-        element.querySelector('.checkbox').id = `checkbox_${item.id}`       
-        element.querySelector('.task').id = item.id
+    pushTaskInTodos(completedTasks, todosDone, 'checked');
 
-        todosDone.append(element)
-
-    });
-
-    inProgressTasks.forEach((item) => {
-
-        const element = template.content.cloneNode(true)  
-        element.querySelector('.user_id').textContent = `User Id : ${item.userId}`
-        element.querySelector('.task_text').textContent = item.title
-        element.querySelector('.task_text').htmlFor = `checkbox_${item.id}`
-        element.querySelector('.checkbox').id = `checkbox_${item.id}`
-        element.querySelector('.task').id = item.id
-        
-        todosPlanned.append(element)
-        
-    });
+    pushTaskInTodos(inProgressTasks, todosPlanned);
 
 
     todos.addEventListener('click', function(event){
@@ -207,6 +196,10 @@ const addTask = ((data, template, todosPlanned) => {
         
         makeRequestPost(newTask)
         
+    }else if(title == ''){
+        alert('Empty line, please try again')
+    }else{
+        alert('Cancel')
     }
 
 })
@@ -214,10 +207,8 @@ const addTask = ((data, template, todosPlanned) => {
 
 
 
-const removeTask = ((event, data) => {    
-
-    event.target.closest('.task').remove()
-
+const removeTask = ((event, data) => {
+    
     const elem = data[event.target.closest('.task').id - 1]
 
     makeRequest('DELETE', `https://jsonplaceholder.typicode.com/todos/${elem.id}`)
@@ -229,13 +220,15 @@ const removeTask = ((event, data) => {
     .then((data) => {            
         console.log(data)        
     })    
-    
+
+    event.target.closest('.task').remove()    
 
 })
 
 const checkTask = ((event, data, todosDone, todosPlanned) => {       
 
-    const elem = data[event.target.closest('.task').id - 1]
+    const elem = data[event.target.closest('.task').id - 1];
+    let newElem = {};
         
     if(event.target.checked){   
 
@@ -247,7 +240,7 @@ const checkTask = ((event, data, todosDone, todosPlanned) => {
         
         
    
-        const newElem = JSON.stringify({
+        newElem = JSON.stringify({
             
             "userId": elem.userId,
             "id": elem.id,
@@ -256,7 +249,7 @@ const checkTask = ((event, data, todosDone, todosPlanned) => {
         
         })
 
-        makeRequestPut(elem.id, newElem)
+        
 
     }else{
 
@@ -268,7 +261,7 @@ const checkTask = ((event, data, todosDone, todosPlanned) => {
 
         
 
-        const newElem = JSON.stringify({
+        newElem = JSON.stringify({
             
             "userId": elem.userId,
             "id": elem.id,
@@ -277,9 +270,11 @@ const checkTask = ((event, data, todosDone, todosPlanned) => {
         
         })
 
-        makeRequestPut(elem.id, newElem)
+        
 
-    }     
+    }   
+    
+    makeRequestPut(elem.id, newElem)
 
  
 })
