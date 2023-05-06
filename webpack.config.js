@@ -1,32 +1,46 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const PATH = require('./path.js')
+
+
+
 
 module.exports = {
-    mode: 'development',
-    entry: '/src/index.js',
+    
+    entry: path.join(PATH.SRC, 'index.js'),
     // watch: true,
     output: {
-        filename: "bundle.js",
-        path: '/dist'
+        filename: "[name][hash].js",
+        path: path.resolve(PATH.DIST)
     },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'public'),
-        },
-        compress: true,
-        port: 9000,
-        hot: true,
-    },
+    
     watchOptions: {
         aggregateTimeout: 100,
         ignored: ['node_modules/**'],
     },
     resolve: {
-        extensions: ['.js']
+        extensions: ['.js'],
+        alias: {
+            asserts: path.resolve(PATH.ASSETS),
+            src: path.resolve(PATH.SRC)
+        }
     },
     module: {
         rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    "style-loader",
+                    // MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {sourceMap: true},
+                    },
+                    'sass-loader'
+                ]
+
+            },
             {
                 test: /\.css$/,
                 use: [
@@ -47,9 +61,12 @@ module.exports = {
 
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash].css'
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template:path.join(__dirname, '/public/index.html')
+            template:path.join(PATH.PUBLIC, 'index.html')
             // favicon:"public/favicon.ico"
         })
 
