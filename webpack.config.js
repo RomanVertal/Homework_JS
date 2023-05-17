@@ -29,6 +29,18 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(?:js|mjs|cjs)$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: [
+                      ['@babel/preset-env', { targets: "defaults" }]
+                    ]
+                  }
+                }
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     "style-loader",
@@ -51,11 +63,12 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                  {
-                    loader: 'file-loader',
-                  },
-                ],
+                type: 'asset/resource',
+                // use: [
+                //     {
+                //       loader: 'file-loader',
+                //     },
+                //   ],
               },
         ]
 

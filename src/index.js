@@ -1,3 +1,9 @@
 import './style.scss';
 
-console.log('hi3');
+import {asyncFunc} from './async';
+
+asyncFunc()
+
+
+
+
