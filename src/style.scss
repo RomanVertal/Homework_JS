@@ -285,8 +285,7 @@ body{
 }
 
 
-.add_movie{
-    border: 1px solid red;
+.add_movie{    
     position: fixed;
     top: 0;
     bottom: 0;
@@ -298,11 +297,19 @@ body{
 
 .add_movie__form{
     position: relative;
-    width: 650px;
-    height: 700px;
+    width: 650px;    
     margin: 50px auto;    
     padding: 50px;
     background-color: #232323;
+
+    form{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 20px;
+        margin-top: 50px;
+        
+
+    }
     
    
 }
@@ -312,6 +319,7 @@ body{
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #FFFFFF;
+    
 
 }
 
@@ -330,5 +338,112 @@ body{
         color: #F65261;
 
     }
+    
+}
+
+
+.add_movie__form-block{
+    border: 0px solid red;
+    display: flex;
+    flex-direction: column;
+    
+   
+
+    label{
+        color: #F65261;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+
+    }
+    input{
+        background: rgba(50, 50, 50, 0.948044);
+        opacity: 0.8;
+        border: 1px solid rgba(50, 50, 50, 0.948044);
+        border-radius: 4px;
+        padding: 10px 15px;
+        outline: none;
+        color: #FFFFFF;
+
+        &:focus{
+            border-bottom: 2px solid #F65261;
+        }
+
+    }
+
+}
+
+.add_movie__form-block-overview{
+    grid-column: 1 / span 2;
+
+    textarea{
+        background: rgba(50, 50, 50, 0.948044);
+        opacity: 0.8;
+        border: 1px solid rgba(50, 50, 50, 0.948044);
+        border-radius: 4px;
+        padding: 15px;
+        outline: none;
+        color: #FFFFFF;
+        resize:none;
+        height: 100px;
+
+        &:focus{
+            border-bottom: 2px solid #F65261;
+        }
+        
+    }
+
+}
+
+
+.add_movie__form-button{    
+    padding-top: 20px;
+    grid-column: 1 / span 2;
+    text-align: right;
+}
+
+.add_movie__form-button-reset{
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #F65261;
+    background: #232323;
+    border: 1px solid #F65261;
+    border-radius: 4px;
+    padding: 10px 40px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+        color: #FFFFFF;
+        background: #F65261;
+        border: 1px solid #F65261;
+    }
+
+}
+
+.add_movie__form-button-submit{
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #F65261;
+    border: 1px solid #F65261;
+    border-radius: 4px;
+    padding: 10px 40px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+        color: #F65261;
+        background: #232323;
+        border: 1px solid #F65261;
+    }
+
+}
+
+.hidden_block{
+    display: none;
     
 }

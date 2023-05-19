@@ -74,7 +74,47 @@
         
     }
 
+    .add_movie__form{
+        
+        width: 80%;    
+        margin: 10px auto;    
+        padding: 40px;     
+
+        form{
+            display: block;                        
+    
+        }
+
+    }
+
+    .add_movie__form-title{
+        font-size: 30px;       
+
+    }
+
+    .add_movie__form-block{
+
+        label{
+            font-size: 14px;
+            margin: 20px 0 5px 0;
+    
+        }
+        input{            
+            padding: 10px 15px;         
+   
+        }
+
+    }
+
+    .add_movie__form-button{    
+        padding-top: 20px;        
+        text-align: center;
+    }
+
+
 }
+
+
 
 @media screen  and (max-width:690px){
 
@@ -121,4 +161,19 @@
       
     }
 
+}
+
+@media screen  and (max-width:470px){
+    
+    .add_movie__form{     
+        padding: 20px;     
+
+    }
+
+    .add_movie__form-button{   
+        button{
+            padding: 10px 25px;;
+
+        }      
+    }
 }

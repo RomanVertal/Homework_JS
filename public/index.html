@@ -252,14 +252,59 @@
 
         </footer>
 
-        <div class="add_movie">
+        <div class="add_movie hidden_block">
 
             <div class="add_movie__form">
 
                 <span class="add_movie__form-title">ADD MOVIE</span>
-                <button class="add_movie__form-button-close">✕</button>              
+                <button class="add_movie__form-button-close">✕</button>     
+                
+                <form action="" method="get" target="_self">
+
+                    <div class="add_movie__form-block">
+                        <label for="title">Title</label>   
+                        <input name="title" type="text" placeholder="Name">
+                    </div>
+
+                    <div class="add_movie__form-block">
+                        <label for="release_date">Release date</label>   
+                        <input name="release_date" type="text" placeholder="Select Date">
+                    </div>
+
+                    <div class="add_movie__form-block">
+                        <label for="movie_url">Movie url</label>   
+                        <input name="movie_url" type="text" placeholder="https://">
+                    </div>
+
+                    <div class="add_movie__form-block">
+                        <label for="rating">Rating</label>   
+                        <input name="rating" type="text" placeholder="7.8">
+                    </div>
+
+                    <div class="add_movie__form-block">
+                        <label for="genre">Genre</label>   
+                        <input name="genre" type="text" placeholder="Select Genre">
+                    </div>
+
+                    <div class="add_movie__form-block">
+                        <label for="runtime">Runtime</label>   
+                        <input name="runtime" type="text" placeholder="Minutes">
+                    </div>
+
+                    <div class="add_movie__form-block add_movie__form-block-overview">
+                        <label for="overview">Overview</label>   
+                        <textarea name="overview" placeholder="Movie description"></textarea>
+                    </div>
+
+                    <div class="add_movie__form-button">
+
+                        <button class="add_movie__form-button-reset" type="reset">Reset</button>
+                        <button class="add_movie__form-button-submit" type="submit">Submit</button>
+
+                    </div>
 
 
+                </form>
 
 
             </div>
