@@ -1,9 +1,7 @@
-import './style.scss';
+import "./style.scss";
 
-import {asyncFunc} from './async';
+import { asyncFunc } from "./async";
 
-asyncFunc()
+asyncFunc();
 
-
-
-
+document.querySelector(".id");
