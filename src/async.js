@@ -1,3 +1,3 @@
 export const asyncFunc = async () => {
-    await setTimeout(console.log, 1000, 3)
-}
+	await setTimeout(console.log, 1000, 3);
+};
