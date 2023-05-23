@@ -475,3 +475,20 @@ body{
 .paginator_link_active{
     color: #ffffff;
 }
+
+#showMore{
+    margin:20px auto;
+    padding: 10px;
+    background-color: #F65261;
+    color: #FFFFFF;
+    border: 1px solid #F65261;
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover{
+        background: #ff3243;
+        border: 1px solid #ff3243;
+        
+    }   
+}
