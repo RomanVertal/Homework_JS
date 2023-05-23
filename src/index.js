@@ -1,7 +1,8 @@
-import "./adaptive.scss";
 import "./style.scss";
+import "./style_adaptive.scss";
 
 import { asyncFunc } from "./async";
+import { createMovies } from "./components/movies";
 
 asyncFunc();
 
@@ -17,3 +18,9 @@ const toggleAddMovieForm = () => {
 
 addMovieButton.addEventListener("click", toggleAddMovieForm);
 closeMovieButton.addEventListener("click", toggleAddMovieForm);
+
+const initApp = () => {
+	createMovies();
+};
+
+initApp();
