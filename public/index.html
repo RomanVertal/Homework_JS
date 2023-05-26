@@ -11,157 +11,8 @@
 </head>
 <body>
 
-    <div class="wrapper">
-
-        <header class="header">
-
-            <div class="header__top">
-
-                <span class="header__top-title"><span>netflix</span>roulette</span>
-
-                <button class="button_add_movie">+ add movie</button>
-
-            </div>
-
-            <div class="header__search">
-                
-                <p class="header__search-title">FIND YOUR MOViE</p>
-
-                <form action="" method="get" target="_self">  
-
-                    <input class="header__search-input" type="text" placeholder="What do you want to watch?">
-                    <button class="header__search-button" type="button">Search</button>                                      
-                    
-                </form>               
-
-            </div>           
-            
-        </header>
-
-
-        <main class="main">
-
-            <nav class="main__nav">
-
-                <div class="main__nav-categories">
-
-                    <a class="main__nav-categories-link main__nav-categories-link_active" href="#">All</a>
-                    <a class="main__nav-categories-link" href="#">Documentary</a>
-                    <a class="main__nav-categories-link" href="#">Comedy</a>
-                    <a class="main__nav-categories-link" href="#">Horror</a>
-                    <a class="main__nav-categories-link" href="#">Crime</a>
-
-                </div>
-
-                <div class="main__nav-filters">
-
-                    <span class="main__nav-filters-title">Sort by</span>
-                    <button class="main__nav-filters-button">release date</button>                    
-
-                </div>
-
-            </nav>
-
-            <div class="main__content">
-
-                <div class="main__content-count">
-
-                    <span>39 movies found</span>
-
-                </div>
-
-                <div class="main__content-films">
-
-    
-
-                </div>
-
-                
-
-                <div class="main__paginator">
-
-                </div>
-
-
-
-            </div>
-
-
-
-
-
-        </main>
-
-
-        <footer class="footer">
-
-            <span class="footer__title"><span>netflix</span>roulette</span>
-
-        </footer>
-
-        <div class="add_movie hidden_block">
-
-            <div class="add_movie__form">
-
-                <span class="add_movie__form-title">ADD MOVIE</span>
-                <button class="add_movie__form-button-close">✕</button>     
-                
-                <form action="" method="get" target="_self">
-
-                    <div class="add_movie__form-block">
-                        <label for="title">Title</label>   
-                        <input name="title" type="text" placeholder="Name">
-                    </div>
-
-                    <div class="add_movie__form-block">
-                        <label for="release_date">Release date</label>   
-                        <input name="release_date" type="text" placeholder="Select Date">
-                    </div>
-
-                    <div class="add_movie__form-block">
-                        <label for="movie_url">Movie url</label>   
-                        <input name="movie_url" type="text" placeholder="https://">
-                    </div>
-
-                    <div class="add_movie__form-block">
-                        <label for="rating">Rating</label>   
-                        <input name="rating" type="text" placeholder="7.8">
-                    </div>
-
-                    <div class="add_movie__form-block">
-                        <label for="genre">Genre</label>   
-                        <input name="genre" type="text" placeholder="Select Genre">
-                    </div>
-
-                    <div class="add_movie__form-block">
-                        <label for="runtime">Runtime</label>   
-                        <input name="runtime" type="text" placeholder="Minutes">
-                    </div>
-
-                    <div class="add_movie__form-block add_movie__form-block-overview">
-                        <label for="overview">Overview</label>   
-                        <textarea name="overview" placeholder="Movie description"></textarea>
-                    </div>
-
-                    <div class="add_movie__form-button">
-
-                        <button class="add_movie__form-button-reset" type="reset">Reset</button>
-                        <button class="add_movie__form-button-submit" type="submit">Submit</button>
-
-                    </div>
-
-
-                </form>
-
-
-            </div>
-
-        </div>
-
-
-    </div>
-
     <template class="movieItem">
+
         <div class="main__content-films-block">
 
             <div class="main__content-films-block-images">
@@ -185,10 +36,19 @@
 
             </div>
 
-
         </div>
+
     </template>
-    
+
+
+    <template class="addMovieFormItem">
+
+        <div class="add_movie__form-block">
+            <label for=""></label>   
+            <input name="" type="" placeholder="">
+        </div>
+
+    </template>  
 
 
 </body>

@@ -1,17 +1,14 @@
-export const createMoreButton =(container) => {
-    const button = document.createElement('button');
-    button.type= 'button';
-    button.id = 'showMore'
-    button.innerText = 'show more'
+export const createMoreButton = (container) => {
+	const moreButtonContainer = document.createElement("div");
+	moreButtonContainer.classList.add("main__more-button-container");
 
-    button.addEventListener('click', () =>{
-        
+	const button = document.createElement("button");
+	button.type = "button";
+	button.id = "showMore";
+	button.innerText = "show more";
 
-    
-    })
-    container.append(button)
+	button.addEventListener("click", () => {});
 
-}
-
-
-
+	moreButtonContainer.append(button);
+	container.append(moreButtonContainer);
+};

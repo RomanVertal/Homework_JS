@@ -1,11 +1,43 @@
 import "./style.scss";
 import "./style_adaptive.scss";
 
-import { asyncFunc } from "./async";
+import { createAddMovieForm } from "./components/addMovieForm";
+import { createCountFilms } from "./components/countFilms";
+import { createFooter } from "./components/footer";
+import { createHeader } from "./components/header";
+import { createMoreButton } from "./components/moreMoviesButton";
 import { createMovies } from "./components/movies";
-import { createMoreButton } from "./components/moreMoviesButton/index";
+import { createNavigation } from "./components/navigation";
 
-asyncFunc();
+const initApp = () => {
+	const wrapper = document.createElement("div");
+	wrapper.classList.add("wrapper");
+	createHeader(wrapper);
+
+	const main = document.createElement("main");
+	main.classList.add("main");
+	wrapper.append(main);
+
+	createNavigation(main);
+
+	createCountFilms(main);
+
+	const mainContentFilms = document.createElement("div");
+	mainContentFilms.classList.add("main__content-films");
+	main.append(mainContentFilms);
+
+	createMovies(mainContentFilms);
+
+	createMoreButton(main);
+
+	createFooter(wrapper);
+
+	createAddMovieForm(wrapper);
+
+	document.body.append(wrapper);
+};
+
+initApp();
 
 const addMovieForm = document.querySelector(".add_movie");
 const addMovieButton = document.querySelector(".button_add_movie");
@@ -13,17 +45,9 @@ const closeMovieButton = document.querySelector(
 	".add_movie__form-button-close"
 );
 
-const toggleAddMovieForm = () => {
+export const toggleAddMovieForm = () => {
 	addMovieForm.classList.toggle("hidden_block");
 };
 
 addMovieButton.addEventListener("click", toggleAddMovieForm);
 closeMovieButton.addEventListener("click", toggleAddMovieForm);
-
-const initApp = () => {
-	const moveContainer = document.querySelector('.main')
-	createMovies();
-	createMoreButton(moveContainer)
-};
-
-initApp();

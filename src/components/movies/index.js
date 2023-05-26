@@ -3,7 +3,6 @@ import { getMovies } from "../../api";
 import { parseDate } from "../../utils/data";
 import { searchToObject } from "../../utils/search";
 
-const container = document.querySelector(".main__content-films");
 const template = document.querySelector(".movieItem");
 
 const createMovie = (movie) => {
@@ -22,10 +21,9 @@ const createMovie = (movie) => {
 	return movieElement;
 };
 
-
-export const createMovies = () => {
+export const createMovies = (container) => {
 	const params = window.location.search;
-	console.log(searchToObject(params))
+	console.log(searchToObject(params));
 	getMovies().then((data) => {
 		const movies = data.data;
 
@@ -34,5 +32,3 @@ export const createMovies = () => {
 		container.append(...moviesElements);
 	});
 };
-
-
