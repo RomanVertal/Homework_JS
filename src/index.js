@@ -8,15 +8,16 @@ import { createHeader } from "./components/header";
 import { createMoreButton } from "./components/moreMoviesButton";
 import { createMovies } from "./components/movies";
 import { createNavigation } from "./components/navigation";
+import { createWrapper } from "./components/wrapper";
+import { createMain } from "./components/main";
 
 const initApp = () => {
-	const wrapper = document.createElement("div");
-	wrapper.classList.add("wrapper");
-	createHeader(wrapper);
 
-	const main = document.createElement("main");
-	main.classList.add("main");
-	wrapper.append(main);
+	const wrapper =  createWrapper();
+
+	createHeader(wrapper);	
+
+	const main = createMain()
 
 	createNavigation(main);
 
