@@ -1,5 +1,5 @@
 import defaultPoster from "../../../public/images/poster.jpg";
-import { getMovies } from "../../api";
+import { getMovies, updateMoviesState } from "../../api";
 import { parseDate } from "../../utils/data";
 import { searchToObject } from "../../utils/search";
 
@@ -24,11 +24,12 @@ const createMovie = (movie) => {
 export const createMovies = (container) => {
 	const params = window.location.search;
 	console.log(searchToObject(params));
-	getMovies().then((data) => {
+	updateMoviesState().then((data) => {
 		const movies = data.data;
 
 		const moviesElements = movies.map(createMovie);
 
+		container.innerHTML = ''
 		container.append(...moviesElements);
 	});
 };

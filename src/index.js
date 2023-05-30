@@ -11,6 +11,8 @@ import { createNavigation } from "./components/navigation";
 import { createWrapper } from "./components/wrapper";
 import { createMain } from "./components/main";
 
+export const mainContentFilms = document.createElement("div");
+
 const initApp = () => {
 
 	const wrapper =  createWrapper();
@@ -23,7 +25,7 @@ const initApp = () => {
 
 	createCountFilms(main);
 
-	const mainContentFilms = document.createElement("div");
+
 	mainContentFilms.classList.add("main__content-films");
 	main.append(mainContentFilms);
 
