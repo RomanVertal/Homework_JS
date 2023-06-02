@@ -1,11 +1,11 @@
 import defaultPoster from "../../../public/images/poster.jpg";
-import { getMovies, updateMoviesState } from "../../api";
+import { updateMoviesState } from "../../api";
 import { parseDate } from "../../utils/data";
 import { searchToObject } from "../../utils/search";
 
 const template = document.querySelector(".movieItem");
 
-const createMovie = (movie) => {
+export const createMovie = (movie) => {
 	const movieElement = template.content.cloneNode(true);
 
 	movieElement.querySelector("img").src = movie.poster_path;
@@ -26,10 +26,9 @@ export const createMovies = (container) => {
 	console.log(searchToObject(params));
 	updateMoviesState().then((data) => {
 		const movies = data.data;
-
 		const moviesElements = movies.map(createMovie);
 
-		container.innerHTML = ''
+		container.innerHTML = "";
 		container.append(...moviesElements);
 	});
 };

@@ -5,33 +5,30 @@ import { createAddMovieForm } from "./components/addMovieForm";
 import { createCountFilms } from "./components/countFilms";
 import { createFooter } from "./components/footer";
 import { createHeader } from "./components/header";
+import { createMain } from "./components/main";
 import { createMoreButton } from "./components/moreMoviesButton";
 import { createMovies } from "./components/movies";
 import { createNavigation } from "./components/navigation";
 import { createWrapper } from "./components/wrapper";
-import { createMain } from "./components/main";
-
-export const mainContentFilms = document.createElement("div");
 
 const initApp = () => {
+	const wrapper = createWrapper();
 
-	const wrapper =  createWrapper();
+	createHeader(wrapper);
 
-	createHeader(wrapper);	
-
-	const main = createMain()
+	const main = createMain();
 
 	createNavigation(main);
 
 	createCountFilms(main);
 
-
+	const mainContentFilms = document.createElement("div");
 	mainContentFilms.classList.add("main__content-films");
 	main.append(mainContentFilms);
 
 	createMovies(mainContentFilms);
 
-	createMoreButton(main);
+	createMoreButton(main, mainContentFilms);
 
 	createFooter(wrapper);
 

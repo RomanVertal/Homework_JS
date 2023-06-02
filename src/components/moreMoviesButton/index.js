@@ -1,10 +1,8 @@
-import { mainContentFilms } from "../..";
-import { createMovie, defaultLimit, updateMoviesState } from "../../api";
-import { getSearchParams, updateSearchParams } from "../../utils/search";
-import { createMovies } from "../movies";
+import { defaultLimit, updateMoviesState } from "../../api";
+import { getSearchParams } from "../../utils/search";
+import { createMovie } from "../movies";
 
-
-export const createMoreButton = (container) => {
+export const createMoreButton = (container, mainContentFilms) => {
 	const moreButtonContainer = document.createElement("div");
 	moreButtonContainer.classList.add("main__more-button-container");
 
@@ -16,10 +14,8 @@ export const createMoreButton = (container) => {
 	const onClick = () =>{
 		const currentLimit = getSearchParams()?.limit || defaultLimit;
 		updateMoviesState({limit: currentLimit + defaultLimit}).then((data) => {
-			const movies = data.data;
-
-			const moviesElements = movies.map(createMovie);
-			console.log(data)
+			const movies = data.data;			
+			const moviesElements = movies.map(createMovie);			
 
 			mainContentFilms.innerHTML = '';
 			mainContentFilms.append(...moviesElements);
