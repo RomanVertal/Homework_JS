@@ -1,3 +1,5 @@
+import { onSearch } from "../searchFilm";
+
 export const createHeader = (container) => {
 	const header = document.createElement("header");
 	header.classList.add("header");
@@ -26,12 +28,10 @@ export const createHeader = (container) => {
 	headerSearch.append(headerSearchTitle);
 
 	const formSearch = document.createElement("form");
-	formSearch.action = "";
-	formSearch.method = "get";
-	formSearch.target = "_self";
 	headerSearch.append(formSearch);
 
 	const headerSearchInput = document.createElement("input");
+	headerSearchInput.name = "search"
 	headerSearchInput.classList.add("header__search-input");
 	headerSearchInput.type = "text";
 	headerSearchInput.placeholder = "What do you want to watch?";
@@ -39,9 +39,11 @@ export const createHeader = (container) => {
 
 	const headerSearchButton = document.createElement("button");
 	headerSearchButton.classList.add("header__search-button");
-	headerSearchButton.type = "button";
+	headerSearchButton.type = "submit";
 	headerSearchButton.textContent = "Search";
 	formSearch.append(headerSearchButton);
+
+	formSearch.addEventListener('submit', onSearch)
 
 	container.append(header);
 };

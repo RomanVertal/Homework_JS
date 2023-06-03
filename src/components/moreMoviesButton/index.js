@@ -13,14 +13,7 @@ export const createMoreButton = (container, mainContentFilms) => {
 
 	const onClick = () =>{
 		const currentLimit = getSearchParams()?.limit || defaultLimit;
-		updateMoviesState({limit: currentLimit + defaultLimit}).then((data) => {
-			const movies = data.data;			
-			const moviesElements = movies.map(createMovie);			
-
-			mainContentFilms.innerHTML = '';
-			mainContentFilms.append(...moviesElements);
-
-		})
+		updateMoviesState({limit: currentLimit + defaultLimit})
 		
 	}
 

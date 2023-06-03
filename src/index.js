@@ -10,6 +10,7 @@ import { createMoreButton } from "./components/moreMoviesButton";
 import { createMovies } from "./components/movies";
 import { createNavigation } from "./components/navigation";
 import { createWrapper } from "./components/wrapper";
+import { createMainContentFilms } from "./components/mainContentFilms";
 
 const initApp = () => {
 	const wrapper = createWrapper();
@@ -22,9 +23,7 @@ const initApp = () => {
 
 	createCountFilms(main);
 
-	const mainContentFilms = document.createElement("div");
-	mainContentFilms.classList.add("main__content-films");
-	main.append(mainContentFilms);
+	const mainContentFilms = createMainContentFilms(main)
 
 	createMovies(mainContentFilms);
 

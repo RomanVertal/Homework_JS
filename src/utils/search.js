@@ -40,6 +40,7 @@ export const updateSearchParams = (params) => {
 	}
 	if (params.search) {
 		url.searchParams.set("search", params.search);
+		url.searchParams.set("searchBy", "title");
 	}
 	if (params.sortBy) {
 		url.searchParams.set("sortBy", params.sortBy);

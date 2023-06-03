@@ -1,3 +1,4 @@
+import { createMovieItem } from "../components/movies";
 import {
 	getSearchParams,
 	objToSearch,
@@ -42,5 +43,30 @@ export const deleteMovie = (id) =>
 
 export const updateMoviesState = (params) => {
 	if (params) updateSearchParams(params);
-	return getMovies(getSearchParams() || defaultParams);
+	const currentParams = getSearchParams() || defaultParams
+	return getMovies(currentParams).then((data) => {
+		const movies = data.data;			
+		const moviesElements = movies.map(createMovieItem);			
+
+        const moviesContainer = document.querySelector('.main__content-films')
+        
+		moviesContainer.innerHTML = '';
+		moviesContainer.append(...moviesElements);
+
+		const moviesCountContainer = document.querySelector('.count_films')
+
+		if(moviesCountContainer){
+			moviesCountContainer.textContent = data.totalAmount
+		}
+
+		const showMoreButton = document.querySelector('#showMore')
+		console.log(currentParams.limit)
+		
+		if(data.totalAmount <= (currentParams.limit || defaultLimit)){
+			showMoreButton.classList.add('hidden')
+		}else{
+			showMoreButton.classList.remove('hidden')
+		}
+
+	})
 };
