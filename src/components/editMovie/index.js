@@ -5,9 +5,9 @@ export const onRemoveEditMovieForm = () => {
 	document.querySelector(".edit_movie").remove();
 };
 
-export const createEditMovieForm = (container) => {
+export const createEditMovieForm = (container,movie) => {
 	editMovieBlock.classList.add("edit_movie");
-
+	console.log(movie)
 	const editMovieForm = document.createElement("div");
 	editMovieForm.classList.add("edit_movie__form");
 
@@ -37,9 +37,9 @@ export const createEditMovieForm = (container) => {
 	title.querySelector("input").name = "title";
 	title.querySelector("input").type = "text";
 	title.querySelector("input").placeholder = "Name";
-
+	title.querySelector("input").value = movie.title;
 	form.append(title);
-
+	
 	const releaseDate = template.content.cloneNode(true);
 	releaseDate.querySelector("label").for = "release_date";
 	releaseDate.querySelector("label").textContent = "Release date";
@@ -54,6 +54,7 @@ export const createEditMovieForm = (container) => {
 	movieUrl.querySelector("input").name = "movie_url";
 	movieUrl.querySelector("input").type = "text";
 	movieUrl.querySelector("input").placeholder = "https://";
+	movieUrl.querySelector("input").value = movie.poster_path;
 	form.append(movieUrl);
 
 	const rating = template.content.cloneNode(true);
@@ -62,6 +63,8 @@ export const createEditMovieForm = (container) => {
 	rating.querySelector("input").name = "rating";
 	rating.querySelector("input").type = "text";
 	rating.querySelector("input").placeholder = "7.8";
+	rating.querySelector("input").value = movie.vote_average;
+	
 	form.append(rating);
 
 	const genre = template.content.cloneNode(true);
@@ -78,6 +81,8 @@ export const createEditMovieForm = (container) => {
 	runtime.querySelector("input").name = "runtime";
 	runtime.querySelector("input").type = "text";
 	runtime.querySelector("input").placeholder = "Minutes";
+	runtime.querySelector("input").value = movie.runtime;
+	
 	form.append(runtime);
 
 	const overview = template.content.cloneNode(true);
@@ -88,6 +93,7 @@ export const createEditMovieForm = (container) => {
 	const overviewTextarea = document.createElement("textarea");
 	overviewTextarea.name = "overview";
 	overviewTextarea.placeholder = "Movie description";
+	overviewTextarea.value = movie.overview;
 	overview.querySelector("div").append(overviewTextarea);
 	form.append(overview);
 
