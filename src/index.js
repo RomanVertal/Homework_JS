@@ -6,11 +6,11 @@ import { createCountFilms } from "./components/countFilms";
 import { createFooter } from "./components/footer";
 import { createHeader } from "./components/header";
 import { createMain } from "./components/main";
+import { createMainContentFilms } from "./components/mainContentFilms";
 import { createMoreButton } from "./components/moreMoviesButton";
 import { createMovies } from "./components/movies";
 import { createNavigation } from "./components/navigation";
 import { createWrapper } from "./components/wrapper";
-import { createMainContentFilms } from "./components/mainContentFilms";
 
 const initApp = () => {
 	const wrapper = createWrapper();
@@ -23,7 +23,7 @@ const initApp = () => {
 
 	createCountFilms(main);
 
-	const mainContentFilms = createMainContentFilms(main)
+	const mainContentFilms = createMainContentFilms(main);
 
 	createMovies(mainContentFilms);
 

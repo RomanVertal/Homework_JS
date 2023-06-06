@@ -1,7 +1,9 @@
 import defaultPoster from "../../../public/images/poster.jpg";
-import { updateMoviesState } from "../../api";
+import { createMovie, updateMoviesState } from "../../api";
 import { parseDate } from "../../utils/data";
 import { searchToObject } from "../../utils/search";
+import { createDeleteMovieForm } from "../deleteMovie";
+import { createEditMovieForm } from "../editMovie";
 
 const template = document.querySelector(".movieItem");
 
@@ -18,6 +20,20 @@ export const createMovieItem = (movie) => {
 		movie.release_date
 	).year;
 
+	const wrapper = document.querySelector(".wrapper");
+
+	const btnDelete = movieElement.querySelector(".nav-btn-delete");
+
+	btnDelete.addEventListener("click", () => {
+		createDeleteMovieForm(wrapper);
+	});
+
+	const btnEdit = movieElement.querySelector(".nav-btn-edit");
+
+	btnEdit.addEventListener("click", () => {
+		createEditMovieForm(wrapper);
+	});
+
 	return movieElement;
 };
 
@@ -27,8 +43,8 @@ export const createMovies = (container) => {
 	updateMoviesState().then((data) => {
 		const movies = data.data;
 		const moviesElements = movies.map(createMovie);
-		
-		container.innerHTML = "";		
+
+		container.innerHTML = "";
 		container.append(...moviesElements);
 	});
 };

@@ -1,6 +1,5 @@
 import { defaultLimit, updateMoviesState } from "../../api";
 import { getSearchParams } from "../../utils/search";
-import { createMovie } from "../movies";
 
 export const createMoreButton = (container, mainContentFilms) => {
 	const moreButtonContainer = document.createElement("div");
