@@ -8,12 +8,12 @@ import { createHeader } from "./components/header";
 import { createMain } from "./components/main";
 import { createMainContentFilms } from "./components/mainContentFilms";
 import { createMoreButton } from "./components/moreMoviesButton";
+import { createMovieDetails } from "./components/movieDetails";
 import { createMovies } from "./components/movies";
 import { createNavigation } from "./components/navigation";
 import { createWrapper } from "./components/wrapper";
 
-const renderHomepage = (wrapper)=>{
-
+const renderHomepage = (wrapper) => {
 	createHeader(wrapper);
 
 	const main = createMain();
@@ -29,28 +29,21 @@ const renderHomepage = (wrapper)=>{
 	createMoreButton(main, mainContentFilms);
 
 	createAddMovieForm(wrapper);
-
-}
+};
 
 const initApp = () => {
 	const wrapper = createWrapper();
 
-	
+	const { pathName } = window;
+	const movieDetailsRegex = /\/movies\//i;
 
+	if (movieDetailsRegex.test(pathName)) {
+		createMovieDetails(wrapper);
+	} else renderHomepage(wrapper);
 
-	const {pathName} = window
-	const movieDetailsRegex = /\/movies\//i
-
-	
-	if(movieDetailsRegex.test(pathName)){
-		console.log("hello from details")
-	} else renderHomepage(wrapper)
-
-
-	createFooter(wrapper)
+	createFooter(wrapper);
 
 	document.body.append(wrapper);
-	
 };
 
 initApp();

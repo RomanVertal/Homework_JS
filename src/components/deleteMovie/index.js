@@ -1,3 +1,7 @@
+import { deleteMovie } from "../../api";
+import { createCongratulationsForm } from "../congratulationsForm";
+import { wrapper } from "../wrapper";
+
 export const deleteMovieBlock = document.createElement("div");
 
 export const onRemoveDeleteMovieForm = () => {
@@ -5,7 +9,7 @@ export const onRemoveDeleteMovieForm = () => {
 	document.querySelector(".delete_movie").remove();
 };
 
-export const createDeleteMovieForm = (container) => {
+export const createDeleteMovieForm = (container, idMovie, movieBlock) => {
 	deleteMovieBlock.classList.add("delete_movie");
 
 	const deleteMovieForm = document.createElement("div");
@@ -27,6 +31,15 @@ export const createDeleteMovieForm = (container) => {
 	deleteMovieFormBtnConfirm.classList.add("delete_movie__form-btn-confirm");
 	deleteMovieFormBtnConfirm.textContent = "confirm";
 	deleteMovieForm.append(deleteMovieFormBtnConfirm);
+
+	const handlerDeleteMovie = () => {
+		deleteMovie(idMovie);
+		onRemoveDeleteMovieForm();
+		movieBlock.remove();
+		createCongratulationsForm(wrapper);
+	};
+
+	deleteMovieFormBtnConfirm.addEventListener("click", handlerDeleteMovie);
 
 	const deleteMovieFormBtnClose = document.createElement("button");
 	deleteMovieFormBtnClose.type = "button";

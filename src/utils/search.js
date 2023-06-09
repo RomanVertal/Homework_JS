@@ -4,7 +4,7 @@ export const searchToObject = (searchString) => {
 	const searchObj = {};
 	params.forEach((element) => {
 		const [key, value] = element.split("=");
-		const parsentValue =parseInt(value, 10)
+		const parsentValue = parseInt(value, 10);
 		searchObj[key] = parsentValue || value;
 	});
 
@@ -12,23 +12,18 @@ export const searchToObject = (searchString) => {
 };
 
 export const objToSearch = (params) => {
-
-	let searchString = ''
-	if(!params) return searchString;
-	Object.entries(params).forEach(([key, value], index)=> {
-		if(value){
-			const symbol = !index ? '?': '&';
-			searchString+= `${symbol}${key}=${value}`
+	let searchString = "";
+	if (!params) return searchString;
+	Object.entries(params).forEach(([key, value], index) => {
+		if (value) {
+			const symbol = !index ? "?" : "&";
+			searchString += `${symbol}${key}=${value}`;
 		}
-		
-	})
+	});
 	return searchString;
-} 
+};
 
-
-export const getSearchParams = () => {
-	return searchToObject(window.location.search)
-}
+export const getSearchParams = () => searchToObject(window.location.search);
 
 export const updateSearchParams = (params) => {
 	const url = new URL(window.location);
@@ -52,7 +47,8 @@ export const updateSearchParams = (params) => {
 	window.history.pushState(null, "", url.toString());
 };
 
-const goToMovieDetails = (id) => {
-	const url = new URL(window.location)
-	url.pathname
-}
+export const goToMovieDetails = (id) => {
+	const url = new URL(window.location);
+	url.pathname = `/movies/${id}`;
+	window.history.pushState(null, "movie details", url.toString());
+};

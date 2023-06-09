@@ -556,7 +556,7 @@ body{
 }
 
 
-.delete_movie{
+.delete_movie, .congratulations_movie{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -565,7 +565,7 @@ body{
     background-color: rgba(160, 160, 160, 0.7);    
 }
 
-.delete_movie__form{
+.delete_movie__form, .congratulations_movie__form{
     display: flex;
     flex-direction: column;
     position: relative;
@@ -576,8 +576,12 @@ body{
 
 }
 
+.congratulations_movie__form{
+    text-align: center;
+}
 
-.delete_movie__form-btn-close{
+
+.delete_movie__form-btn-close, .congratulations_movie__btn-close{
 
     background-color: #232323;
     color: #FFFFFF;
@@ -617,7 +621,7 @@ body{
 
 }
 
-.delete_movie__form-title{
+.delete_movie__form-title, .congratulations_movie__title{
     font-size: 40px;    
     text-transform: uppercase;
     color: #FFFFFF;
@@ -625,7 +629,23 @@ body{
 
 }
 
-.delete_movie__form-subtitle{          
+.delete_movie__form-subtitle, .congratulations_movie__subtitle{          
     color: #FFFFFF;
     margin-bottom: 50px;
+}
+
+.congratulations_logo{
+    background-color: #F65261;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span{
+        font-size: 40px;
+        color: #FFFFFF;
+    }
 }
