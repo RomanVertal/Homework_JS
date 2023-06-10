@@ -34,10 +34,10 @@ const renderHomepage = (wrapper) => {
 const initApp = () => {
 	const wrapper = createWrapper();
 
-	const { pathName } = window;
-	const movieDetailsRegex = /\/movies\//i;
+	const { pathname } = window.location;
+	const movieDetailsRegex = /\/movie/i;
 
-	if (movieDetailsRegex.test(pathName)) {
+	if (movieDetailsRegex.test(pathname)) {
 		createMovieDetails(wrapper);
 	} else renderHomepage(wrapper);
 

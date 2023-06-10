@@ -1,8 +1,11 @@
+export const congratulationsDelete = "The movie has been delete to<br>database successfully ";
+export const congratulationsEdit = "The movie has been edit to<br>database successfully ";
+
 export const onRemoveCongratulationsForm = () => {
 	document.querySelector(".congratulations_movie").innerHTML = "";
 	document.querySelector(".congratulations_movie").remove();
 };
-export const createCongratulationsForm = (container) => {
+export const createCongratulationsForm = (container, textCongratulations) => {
 	const congratulationsMovieBlock = document.createElement("div");
 	congratulationsMovieBlock.classList.add("congratulations_movie");
 
@@ -23,8 +26,8 @@ export const createCongratulationsForm = (container) => {
 
 	const congratulationsSubtitle = document.createElement("p");
 	congratulationsSubtitle.classList.add("congratulations_movie__subtitle");
-	congratulationsSubtitle.innerHTML =
-		"The movie has been delete to<br>database successfully ";
+	congratulationsSubtitle.innerHTML = textCongratulations;
+		
 	congratulationsMovieForm.append(congratulationsSubtitle);
 
 	const congratulationsBtnClose = document.createElement("button");

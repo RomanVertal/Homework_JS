@@ -1,5 +1,6 @@
-import { deleteMovie } from "../../api";
-import { createCongratulationsForm } from "../congratulationsForm";
+import { defaultLimit, defaultParams, deleteMovie, updateMoviesState } from "../../api";
+import { getSearchParams } from "../../utils/search";
+import { congratulationsDelete, createCongratulationsForm } from "../congratulationsForm";
 import { wrapper } from "../wrapper";
 
 export const deleteMovieBlock = document.createElement("div");
@@ -33,10 +34,15 @@ export const createDeleteMovieForm = (container, idMovie, movieBlock) => {
 	deleteMovieForm.append(deleteMovieFormBtnConfirm);
 
 	const handlerDeleteMovie = () => {
-		deleteMovie(idMovie);
-		onRemoveDeleteMovieForm();
-		movieBlock.remove();
-		createCongratulationsForm(wrapper);
+		deleteMovie(idMovie).then(()=> {
+			onRemoveDeleteMovieForm();
+			createCongratulationsForm(wrapper, congratulationsDelete)
+		});
+		
+		const currentLimit = getSearchParams()?.limit || defaultLimit;	
+		console.log(currentLimit)	
+		updateMoviesState({limit: currentLimit})		
+		
 	};
 
 	deleteMovieFormBtnConfirm.addEventListener("click", handlerDeleteMovie);

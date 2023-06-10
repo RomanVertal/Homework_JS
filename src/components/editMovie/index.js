@@ -1,4 +1,7 @@
-import { updateMovie } from "../../api";
+import { defaultLimit, defaultParams, updateMovie, updateMoviesState } from "../../api";
+import { getSearchParams } from "../../utils/search";
+import { congratulationsEdit, createCongratulationsForm } from "../congratulationsForm";
+import { wrapper } from "../wrapper";
 
 export const editMovieBlock = document.createElement("div");
 
@@ -126,22 +129,23 @@ export const createEditMovieForm = (container, movie) => {
 	formButton.append(formButtonSubmit);
 
 	const handlerUpdateMovie = () => {
-		const editMovie = {
-			title: document.querySelector(".title").value,
-			overview: document.querySelector(".textarea").value,
-			runtime: document.querySelector(".runtime").value,
-			poster_path: document.querySelector(".movieUrl").value,
-			release_date: document.querySelector(".releaseDate").value,
-			vote_average: document.querySelector(".rating").value,
-		};
-
-		// movie.title = document.querySelector(".title").value;
-		// movie.overview = document.querySelector(".textarea").value;
-		// movie.runtime = +document.querySelector(".runtime").value;
-		// movie.poster_path = document.querySelector(".movieUrl").value;
-		// movie.release_date = document.querySelector(".releaseDate").value;
-		// movie.vote_average = +document.querySelector(".rating").value;
-		updateMovie(editMovie);
+			
+		movie.title = document.querySelector(".title").value;
+		movie.overview = document.querySelector(".textarea").value;
+		movie.runtime = +document.querySelector(".runtime").value;
+		movie.poster_path = document.querySelector(".movieUrl").value;
+		movie.release_date = document.querySelector(".releaseDate").value;
+		movie.vote_average = +document.querySelector(".rating").value;
+		
+		updateMovie(movie).then(()=> {
+			onRemoveEditMovieForm();
+			createCongratulationsForm(wrapper,congratulationsEdit)
+		
+		});;
+		
+		const currentLimit = getSearchParams()?.limit || defaultLimit;
+		updateMoviesState({limit: currentLimit});
+		
 	};
 
 	formButtonSubmit.addEventListener("click", handlerUpdateMovie);
