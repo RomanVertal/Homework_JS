@@ -13,8 +13,17 @@ import { createMovies } from "./components/movies";
 import { createNavigation } from "./components/navigation";
 import { createWrapper } from "./components/wrapper";
 
-const renderHomepage = (wrapper) => {
-	createHeader(wrapper);
+const initApp = () => {
+	const wrapper = createWrapper();
+
+	const { pathname } = window.location;
+	const movieDetailsRegex = /\/movie/i;
+
+	if (movieDetailsRegex.test(pathname)) {
+		createMovieDetails(wrapper);
+	} else {
+		createHeader(wrapper);
+	}
 
 	const main = createMain();
 
@@ -29,17 +38,6 @@ const renderHomepage = (wrapper) => {
 	createMoreButton(main, mainContentFilms);
 
 	createAddMovieForm(wrapper);
-};
-
-const initApp = () => {
-	const wrapper = createWrapper();
-
-	const { pathname } = window.location;
-	const movieDetailsRegex = /\/movie/i;
-
-	if (movieDetailsRegex.test(pathname)) {
-		createMovieDetails(wrapper);
-	} else renderHomepage(wrapper);
 
 	createFooter(wrapper);
 
@@ -48,15 +46,15 @@ const initApp = () => {
 
 initApp();
 
-const addMovieForm = document.querySelector(".add_movie");
-const addMovieButton = document.querySelector(".button_add_movie");
-const closeMovieButton = document.querySelector(
-	".add_movie__form-button-close"
-);
+// const addMovieForm = document.querySelector(".add_movie");
+// const addMovieButton = document.querySelector(".button_add_movie");
+// const closeMovieButton = document.querySelector(
+// 	".add_movie__form-button-close"
+// );
 
-export const toggleAddMovieForm = () => {
-	addMovieForm.classList.toggle("hidden_block");
-};
+// export const toggleAddMovieForm = () => {
+// 	addMovieForm.classList.toggle("hidden_block");
+// };
 
-addMovieButton.addEventListener("click", toggleAddMovieForm);
-closeMovieButton.addEventListener("click", toggleAddMovieForm);
+// addMovieButton.addEventListener("click", toggleAddMovieForm);
+// closeMovieButton.addEventListener("click", toggleAddMovieForm);

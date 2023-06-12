@@ -13,8 +13,7 @@ body{
 .wrapper{
     border: 0px solid red;
     width: 80vw;
-    margin: auto;
-    background-color: #000000;
+    margin: auto;    
 
 }
 
@@ -24,6 +23,7 @@ body{
     background-size: cover;
     background-position: center;
     height: 396px; 
+    background-color: #000000;
 
 }
 
@@ -648,4 +648,89 @@ body{
         font-size: 40px;
         color: #FFFFFF;
     }
+}
+
+.movie-details{
+    color:#FFFFFF;
+    background-color: #232323;
+    padding: 20px 60px;
+    margin-bottom: 10px;
+   
+}
+.movie-details-top{
+    padding-bottom: 20px;
+
+}
+.movie-details-top-title{
+    color: #F65261;       
+    font-size: 20px;
+    
+    span{
+        font-weight: bold;           
+    }
+
+
+}
+
+.movie-details-main{
+    display: flex;    
+}
+
+.movie-details-image{
+    margin-right: 60px;
+    img{
+        width: 320px;  
+    }  
+}
+
+.movie-details-title-and-rating{
+    display: flex;
+    align-items: center;
+
+
+}
+
+.movie-details-title{
+    font-size: 30px;    
+    text-transform: uppercase;
+    margin-right: 30px;
+
+
+}
+
+.movie-details-rating{
+    border: 2px solid #FFFFFF;
+    border-radius: 50px;
+    font-size: 18px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.movie-details-genre{
+    opacity: 0.5;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.movie-details-year-and-rantime{
+    display: flex;
+    color: #F65261;
+    font-size: 18px;
+    padding: 20px 0;
+}
+
+.movie-details-year{
+    margin-right: 50px;    
+}
+
+.movie-details-rantime{
+    
+}
+
+.movie-details-overview{
+    opacity: 0.5;
 }

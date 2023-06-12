@@ -29,14 +29,12 @@ export const createMovieItem = (movie) => {
 
 export const createMovies = (container) => {
 	const clickHandler = (e) => {
-		
-		// const block = e.target.closest(".main__content-films-block")
 		const movieCard = e.target.closest("[data-id]");
 		if (movieCard) {
 			const { id } = movieCard.dataset;
 			goToMovieDetails(id);
 		}
-		console.log(e.target)
+		console.log(e.target);
 	};
 	container.addEventListener("click", clickHandler);
 

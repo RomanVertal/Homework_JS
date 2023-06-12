@@ -34,10 +34,11 @@ export const updateMovie = (body) =>
 		body: JSON.stringify(body),
 		headers: {
 			"Content-Type": "application/json",
-		}
+		},
 	}).then((data) => data.json());
 
-export const getMovie = (id) => fetch(`${baseUrl}/${id}`);
+export const getMovie = (id) =>
+	fetch(`${baseUrl}/${id}`).then((data) => data.json());
 
 export const deleteMovie = (id) =>
 	fetch(`${baseUrl}/${id}`, {
@@ -69,7 +70,6 @@ export const updateMoviesState = (params) => {
 		}
 
 		const showMoreButton = document.querySelector("#showMore");
-		console.log(currentParams.limit);
 
 		if (data.totalAmount <= (currentParams.limit || defaultLimit)) {
 			showMoreButton.classList.add("hidden");
