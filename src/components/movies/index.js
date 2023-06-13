@@ -1,6 +1,7 @@
 import defaultPoster from "../../../public/images/poster.jpg";
 import { createMovie, updateMoviesState } from "../../api";
 import { parseDate } from "../../utils/data";
+import { makeSafeImage } from "../../utils/img";
 import { goToMovieDetails } from "../../utils/search";
 
 const template = document.querySelector(".movieItem");
@@ -12,9 +13,10 @@ export const createMovieItem = (movie) => {
 		movie.id;
 
 	movieElement.querySelector("img").src = movie.poster_path;
-	movieElement.querySelector("img").onerror = (e) => {
-		e.target.src = defaultPoster;
-	};
+	makeSafeImage(movieElement.querySelector("img"))
+	// movieElement.querySelector("img").onerror = (e) => {
+	// 	e.target.src = defaultPoster;
+	// };
 	movieElement.querySelector("a").textContent = movie.title;
 	movieElement.querySelector("p").textContent = movie.genres.toString();
 	movieElement.querySelector("span").textContent = parseDate(
