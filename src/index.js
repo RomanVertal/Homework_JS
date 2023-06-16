@@ -4,26 +4,18 @@ import "./style_adaptive.scss";
 import { createAddMovieForm } from "./components/addMovieForm";
 import { createCountFilms } from "./components/countFilms";
 import { createFooter } from "./components/footer";
-import { createHeader } from "./components/header";
 import { createMain } from "./components/main";
 import { createMainContentFilms } from "./components/mainContentFilms";
 import { createMoreButton } from "./components/moreMoviesButton";
-import { createMovieDetails } from "./components/movieDetails";
 import { createMovies } from "./components/movies";
 import { createNavigation } from "./components/navigation";
-import { createWrapper } from "./components/wrapper";
+import { renderTopPage } from "./components/renderTopPage";
+import { createWrapper, headerOrDetails } from "./components/wrapper";
 
 const initApp = () => {
 	const wrapper = createWrapper();
 
-	const { pathname } = window.location;
-	const movieDetailsRegex = /\/movie/i;
-
-	if (movieDetailsRegex.test(pathname)) {
-		createMovieDetails(wrapper);
-	} else {
-		createHeader(wrapper);
-	}
+	renderTopPage(headerOrDetails);
 
 	const main = createMain();
 

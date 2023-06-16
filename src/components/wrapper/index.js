@@ -1,5 +1,9 @@
 export const wrapper = document.createElement("div");
-export const createWrapper = ()=> {    
+export const headerOrDetails = document.createElement("header");
+headerOrDetails.classList.add("headerOrDetails");
+
+export const createWrapper = () => {
 	wrapper.classList.add("wrapper");
-    return wrapper
-}
+	wrapper.append(headerOrDetails);
+	return wrapper;
+};

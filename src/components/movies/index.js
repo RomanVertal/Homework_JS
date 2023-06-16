@@ -1,8 +1,9 @@
-import defaultPoster from "../../../public/images/poster.jpg";
 import { createMovie, updateMoviesState } from "../../api";
 import { parseDate } from "../../utils/data";
 import { makeSafeImage } from "../../utils/img";
 import { goToMovieDetails } from "../../utils/search";
+import { renderTopPage } from "../renderTopPage";
+import { headerOrDetails } from "../wrapper";
 
 const template = document.querySelector(".movieItem");
 
@@ -13,7 +14,7 @@ export const createMovieItem = (movie) => {
 		movie.id;
 
 	movieElement.querySelector("img").src = movie.poster_path;
-	makeSafeImage(movieElement.querySelector("img"))
+	makeSafeImage(movieElement.querySelector("img"));
 	// movieElement.querySelector("img").onerror = (e) => {
 	// 	e.target.src = defaultPoster;
 	// };
@@ -36,6 +37,7 @@ export const createMovies = (container) => {
 			const { id } = movieCard.dataset;
 			goToMovieDetails(id);
 		}
+		renderTopPage(headerOrDetails);
 		console.log(e.target);
 	};
 	container.addEventListener("click", clickHandler);

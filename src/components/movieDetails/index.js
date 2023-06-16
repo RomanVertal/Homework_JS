@@ -1,4 +1,3 @@
-import defaultPoster from "../../../public/images/poster.jpg";
 import { getMovie } from "../../api";
 import { parseDate } from "../../utils/data";
 import { makeSafeImage } from "../../utils/img";
@@ -30,10 +29,8 @@ export const createMovieDetails = (container) => {
 
 		const image = document.createElement("img");
 		image.src = data.poster_path;
-		makeSafeImage(image)
-		// image.onerror = () => {
-		// 	image.src = defaultPoster;
-		// };
+		makeSafeImage(image);
+
 		movieDetailsImage.append(image);
 
 		const movieDetailsInfo = document.createElement("div");
@@ -56,7 +53,7 @@ export const createMovieDetails = (container) => {
 
 		const genre = document.createElement("div");
 		genre.classList.add("movie-details-genre");
-		genre.textContent = data.genres.join('&');
+		genre.textContent = data.genres.join("&");
 		movieDetailsInfo.append(genre);
 
 		const yearAndRuntime = document.createElement("div");
