@@ -2,7 +2,7 @@ import { getMovie } from "../../api";
 import { parseDate } from "../../utils/data";
 import { makeSafeImage } from "../../utils/img";
 import { parseRuntime } from "../../utils/runtime";
-import { searchToObject } from "../../utils/search";
+import { goBack, searchToObject } from "../../utils/search";
 
 export const createMovieDetails = (container) => {
 	const { id } = searchToObject(window.location.search);
@@ -18,6 +18,13 @@ export const createMovieDetails = (container) => {
 		movieDetailsTopTitle.classList.add("movie-details-top-title");
 		movieDetailsTopTitle.innerHTML = "<span>netflix</span>roulette";
 		movieDetailsTop.append(movieDetailsTopTitle);
+
+		const movieDetailsTopBtn = document.createElement("button");
+		movieDetailsTopBtn.type="button"
+		movieDetailsTopBtn.classList.add("movie-details-top-button");
+		movieDetailsTopBtn.innerHTML = "search";
+		movieDetailsTopBtn.addEventListener('click', goBack)
+		movieDetailsTop.append(movieDetailsTopBtn);
 
 		const movieDetailsMain = document.createElement("div");
 		movieDetailsMain.classList.add("movie-details-main");

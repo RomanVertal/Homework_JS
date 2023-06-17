@@ -33,21 +33,17 @@ export const createMovieItem = (movie) => {
 export const createMovies = (container) => {
 	const clickHandler = (e) => {
 		const movieCard = e.target.closest("[data-id]");
-		if (movieCard) {
+		const btnDelete = e.target.className === "nav-btn-delete";
+		const btnEdit = (e.target.className === "nav-btn-edit");
+		
+		if (movieCard && !btnDelete && !btnEdit) {
 			const { id } = movieCard.dataset;
 			goToMovieDetails(id);
+			renderTopPage();
 		}
-		renderTopPage(headerOrDetails);
-		console.log(e.target);
+	
 	};
 	container.addEventListener("click", clickHandler);
 
-	updateMoviesState().then((data) => {
-		const movies = data.data;
-
-		const moviesElements = movies.map(createMovie);
-
-		container.innerHTML = "";
-		container.append(...moviesElements);
-	});
+	updateMoviesState();
 };

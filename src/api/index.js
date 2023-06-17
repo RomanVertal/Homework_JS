@@ -43,6 +43,8 @@ export const getMovie = (id) =>
 export const deleteMovie = (id) =>
 	fetch(`${baseUrl}/${id}`, {
 		method: "DELETE",
+	}).then((data) => {
+		updateMoviesState()
 	});
 
 export const moviesList = {};
