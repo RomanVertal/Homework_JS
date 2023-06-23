@@ -20,10 +20,10 @@ export const createMovieDetails = (container) => {
 		movieDetailsTop.append(movieDetailsTopTitle);
 
 		const movieDetailsTopBtn = document.createElement("button");
-		movieDetailsTopBtn.type="button"
+		movieDetailsTopBtn.type = "button";
 		movieDetailsTopBtn.classList.add("movie-details-top-button");
 		movieDetailsTopBtn.innerHTML = "search";
-		movieDetailsTopBtn.addEventListener('click', goBack)
+		movieDetailsTopBtn.addEventListener("click", goBack);
 		movieDetailsTop.append(movieDetailsTopBtn);
 
 		const movieDetailsMain = document.createElement("div");

@@ -1,4 +1,5 @@
 import "./style.scss";
+import "./style_adaptive.scss";
 
 import { createAddMovieForm } from "./components/addMovieForm";
 import { createCountFilms } from "./components/countFilms";

@@ -18,17 +18,19 @@ export const defaultParams = {
 };
 
 const blockRequest = (promise) => {
-	const{body} = document
-	body.classList.add('is-loading');
+	const { body } = document;
+	body.classList.add("is-loading");
 	return promise.finally(
-		setTimeout(()=>body.classList.remove('is-loading'),2000)
-		)
-}
+		setTimeout(() => body.classList.remove("is-loading"), 0)
+	);
+};
 
 export const getMovies = (params) =>
-	blockRequest(	fetch(`${baseUrl}${objToSearch(params || defaultParams)}`).then((data) =>
-	data.json()
-));
+	blockRequest(
+		fetch(`${baseUrl}${objToSearch(params || defaultParams)}`).then((data) =>
+			data.json()
+		)
+	);
 
 export const createMovie = (body) =>
 	fetch(baseUrl, {
@@ -52,7 +54,7 @@ export const deleteMovie = (id) =>
 	fetch(`${baseUrl}/${id}`, {
 		method: "DELETE",
 	}).then((data) => {
-		updateMoviesState()
+		updateMoviesState();
 	});
 
 export const moviesList = {};

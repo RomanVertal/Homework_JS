@@ -1,9 +1,8 @@
-import { createMovie, updateMoviesState } from "../../api";
+import { updateMoviesState } from "../../api";
 import { parseDate } from "../../utils/data";
 import { makeSafeImage } from "../../utils/img";
 import { goToMovieDetails } from "../../utils/search";
 import { renderTopPage } from "../renderTopPage";
-import { headerOrDetails } from "../wrapper";
 
 const template = document.querySelector(".movieItem");
 
@@ -34,14 +33,13 @@ export const createMovies = (container) => {
 	const clickHandler = (e) => {
 		const movieCard = e.target.closest("[data-id]");
 		const btnDelete = e.target.className === "nav-btn-delete";
-		const btnEdit = (e.target.className === "nav-btn-edit");
-		
+		const btnEdit = e.target.className === "nav-btn-edit";
+
 		if (movieCard && !btnDelete && !btnEdit) {
 			const { id } = movieCard.dataset;
 			goToMovieDetails(id);
 			renderTopPage();
 		}
-	
 	};
 	container.addEventListener("click", clickHandler);
 

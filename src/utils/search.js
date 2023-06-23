@@ -1,5 +1,4 @@
 import { renderTopPage } from "../components/renderTopPage";
-import { headerOrDetails } from "../components/wrapper";
 
 export const searchToObject = (searchString) => {
 	const separatedString = searchString.substring(1);
@@ -54,13 +53,11 @@ export const goToMovieDetails = (id) => {
 	const url = new URL(window.location);
 	url.pathname = `/movie`;
 	url.searchParams.set("id", id);
-	console.log(id)
+	console.log(id);
 	window.history.pushState(null, "movie details", url.toString());
 };
-
 
 export const goBack = () => {
 	updateSearchParams(getSearchParams(), window.location.origin);
 	renderTopPage();
-
-}
+};
