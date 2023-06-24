@@ -21,7 +21,7 @@ const blockRequest = (promise) => {
 	const { body } = document;
 	body.classList.add("is-loading");
 	return promise.finally(
-		setTimeout(() => body.classList.remove("is-loading"), 0)
+		setTimeout(() => body.classList.remove("is-loading"), 1000)
 	);
 };
 

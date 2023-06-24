@@ -38,6 +38,11 @@ const initApp = () => {
 
 initApp();
 
+export const sum = (a, b) => {
+	if (!a || !b) throw new Error("one of parametrs is not");
+	return +a + b;
+};
+
 // const addMovieForm = document.querySelector(".add_movie");
 // const addMovieButton = document.querySelector(".button_add_movie");
 // const closeMovieButton = document.querySelector(
