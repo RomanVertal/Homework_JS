@@ -8,6 +8,7 @@ module.exports = {
 	// watch: true,
 	output: {
 		filename: "[name][hash].js",
+		publicPath: "/",
 		path: path.resolve(PATH.DIST),
 	},
 

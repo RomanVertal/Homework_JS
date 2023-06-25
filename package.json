@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.build.js",
-    "lint": "eslint --fix --ext .js ."
+    "lint": "eslint --fix --ext .js .",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-fetch-mock": "^3.0.3",
     "mini-css-extract-plugin": "^2.7.5",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",

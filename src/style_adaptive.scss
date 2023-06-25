@@ -1,0 +1,176 @@
+@media screen  and (max-width:1450px){
+
+    .wrapper{
+        width: 100%;
+    }
+
+}
+
+@media screen  and (max-width:1200px){
+
+    .main__content-films{        
+        
+        grid-template-columns: 1fr 1fr;        
+          
+    }
+
+    .header__search-input{
+        width: 500px;
+    }
+
+
+}
+
+@media screen  and (max-width:900px){
+
+    .header__search{ 
+        text-align: center;    
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            
+        }
+    }
+
+    .header__search-input{
+        width: 100%;
+        margin: auto;
+        font-size: 15px; 
+    }
+    .header__search-button{        
+        margin: 30px auto;
+    }
+
+
+    .main__nav{        
+        display: block;
+        margin: 0px;
+        text-align: center;        
+        padding: 15px 0px;
+    
+    }
+
+    .main__nav-categories-link{
+        padding-bottom: 5px;
+      
+    }
+
+    .main__nav-categories{
+        margin-bottom: 20px;
+
+
+    }
+
+    .main__content-count{
+        text-align: center;   
+    
+    }
+
+    .main__content-films-block{        
+        width: 250px;
+        img{
+            width: 250px;
+        }        
+        
+    }
+
+    .add_movie__form{
+        
+        width: 80%;    
+        margin: 10px auto;    
+        padding: 40px;     
+
+        form{
+            display: block;                        
+    
+        }
+
+    }
+
+    .add_movie__form-title{
+        font-size: 30px;       
+
+    }
+
+    .add_movie__form-block{
+
+        label{
+            font-size: 14px;
+            margin: 20px 0 5px 0;
+    
+        }
+        input{            
+            padding: 10px 15px;         
+   
+        }
+
+    }
+
+    .add_movie__form-button{    
+        padding-top: 20px;        
+        text-align: center;
+    }
+
+
+}
+
+
+
+@media screen  and (max-width:690px){
+
+    .main__content-films{        
+        
+        grid-template-columns: 1fr ;             
+    
+    }
+
+    .header__top{
+        
+        padding: 15px;        
+       
+    }
+
+}
+
+
+@media screen  and (max-width:580px){
+
+    .header{
+        height: 350px;
+    }
+
+    .button_add_movie{
+        width: 130px;
+        height: 35px;
+        font-size: 14px;
+
+    }
+
+    .header__search-title{     
+        font-size: 25px;     
+                    
+    }
+
+    .main__nav-categories-link{
+        margin-right: 5px; 
+        font-size: 14px;
+      
+    }
+
+}
+
+@media screen  and (max-width:470px){
+    
+    .add_movie__form{     
+        padding: 20px;     
+
+    }
+
+    .add_movie__form-button{   
+        button{
+            padding: 10px 25px;;
+
+        }      
+    }
+}

@@ -11,5 +11,6 @@ module.exports = merge(baseWebpackConfig, {
 		compress: true,
 		port: 9000,
 		hot: true,
+		historyApiFallback: true,
 	},
 });
